@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<style>
+    body{
+       background-color: #4de3f0;
+    }
+    
+    .first{
+        height: 286px;
+        padding: 20px;
+        width: 625px;
+        background-color: rgb(120, 182, 236);
+       /* background-image: url(https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.freepik.com%2Ffree-vector%2Fabstract-low-poly-orange-yellow-background_1017-32111.jpg%3Fauto%3Dformat%26h%3D200&imgrefurl=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fbright-background&tbnid=YLIZ70UPSJt1yM&vet=12ahUKEwjDgez_sJz8AhWd-nMBHbVIC9IQMyg7egQIARB3..i&docid=xPJYhKc_NAYOTM&w=350&h=200&q=background%20image&ved=2ahUKEwjDgez_sJz8AhWd-nMBHbVIC9IQMyg7egQIARB3);*/
+        background-size: 185% 208%; 
+        font-size: 20px;
+        border: 3px solid rgb(48, 6, 174);
+        border-radius: 40px;
+        margin-top: 119px;
+        margin-left: 330px;
+        font-style: oblique;
+        box-shadow: 1px 20px 30px -1px;
+    }
+    .second{
+        margin-left: 35px;
+        margin-top: 60px;
+        color: rgb(10, 10, 10);
+        font-size: 25px;
+    }
+    input{
+        border: -1px;
+        border-radius: 30px;
+        background-color: rgb(239, 199, 199);
+    }
+    .third{
+        margin-left: 390px;
+        margin-top: -240px;
+        color: rgb(55, 142, 209);
+    }
+    button{
+        margin-left: 232px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: 1px solid black;
+        border-radius: 20px;
+        background-color:  #4d29a0;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: coral;
+    }
+    #h{
+        text-align: center;
+        margin-top: -15px;
+    }
+</style>
+<body>
+    <div class="first">
+        <h1 id="h">marksheet !!</h1>
+        <div class="second">
+    <div class="math">
+        <label for="text">Math</label>
+        <input style="margin-left: 24px;" id="first" type="number" placeholder="marks" value="">
+    </div>
+    <div class="English">
+        <label for="text">English</label>
+        <input id="second" type="number" placeholder="marks" value="">
+    </div>
+    <div class="BEE">
+        <label for="text">BEE</label>
+        <input style="margin-left: 31px;" id="third" type="number" placeholder="marks" value="">
+    </div>
+    <div class="Physics">
+        <label for="text">Physics</label>
+        <input id="fourth" type="number" placeholder="marks" value="">
+    </div>
+    <div class="Egd">
+        <label for="text">Egd</label>
+        <input style="margin-left: 36px;" id="fifth" type="number" placeholder="marks" value="">
+    </div><br>
+    <button onclick="result()">Calculate</button><br><br>
+    </div>
+    <div class="third">
+    <table border= "1" style="background-color: rgb(51, 46, 46);">
+        <tr>
+            <th>Total Marks:</th>
+            <td>500</td>
+        </tr>
+        <tr>
+            <th>Obtained marks</th>
+            <td id="scored"></td>
+            
+        </tr>
+        <tr>
+            <th>Percentage</th>
+            <td id="percent"></td>
+            
+        </tr>
+        <tr>
+            <th>Grade</th>
+            <td id="grade"></td>
+            
+        </tr>
+        <tr>
+            <th>Remarks</th>
+            <td id="remarks"></td>
+            
+        </tr>
+    </table>
+    </div>
+</div>
+</body>
+<script>
+    function result() {
+        let a = parseInt(document.getElementById('first').value);
+        let b = parseInt(document.getElementById('second').value);
+        let c = parseInt(document.getElementById('third').value);
+        let d = parseInt(document.getElementById('fourth').value);
+        let e = parseInt(document.getElementById('fifth').value);
+        if (a > 100 || b > 100 || c > 100 || d > 100 || e > 100) {
+            alert("Please Enter Correct No");
+        }
+
+        else {
+            let scored = (a + b + c + d + e);
+            document.getElementById('scored').innerHTML = scored;
+            let percent = (scored / 5)
+            document.getElementById('percent').innerHTML = percent;
+
+            if (percent >= 33) { document.getElementById('remarks').innerHTML = "passed"; }
+            else { document.getElementById('remarks').innerHTML = "failed"; }
+
+            if (percent >= 90) { document.getElementById('grade').innerHTML = "A+" }
+            if (percent < 90 && percent >= 80) { document.getElementById('grade').innerHTML = "A" }
+            if (percent < 80 && percent >= 70) { document.getElementById('grade').innerHTML = "B+" }
+            if (percent < 70 && percent >= 60) { document.getElementById('grade').innerHTML = "B" }
+            if (percent < 60 && percent >= 50) { document.getElementById('grade').innerHTML = "C" }
+            if (percent < 50 && percent >= 40) { document.getElementById('grade').innerHTML = "D" }
+            if (percent < 40 && percent >= 33) { document.getElementById('grade').innerHTML = "E" }
+            if (percent < 33) { document.getElementById('grade').innerHTML = "F" }
+
+        }
+    }
+</script>
+
+</html>
